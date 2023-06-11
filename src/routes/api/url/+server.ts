@@ -16,7 +16,7 @@ export const POST: RequestHandler = async ({ request }) => {
 				}
 			});
 			if (exists) {
-				throw error(400, 'url already exists');
+				throw error(400, 'Custom URL already exists');
 			}
 		} else {
 			data.slug = cuid();
@@ -32,7 +32,7 @@ export const POST: RequestHandler = async ({ request }) => {
 
 		return json({
             ...result,
-            message: 'url created'
+            message: 'URL created'
         });
 	} catch (e: any) {
 		const result = e as Error;
